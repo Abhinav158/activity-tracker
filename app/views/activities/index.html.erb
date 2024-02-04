@@ -1,20 +1,31 @@
-<p style="color: green" class="notice"><%= notice %></p>
-<p style="color:red" class="alert"><%= alert %></p>
+<% if notice.present? %>
+  <div class="alert alert-success fixed-top w-100 text-center mb-4" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert.present? %>
+  <div class="alert alert-danger fixed-top w-100 text-center mb-4" role="alert">
+    <%= alert %>
+  </div>
+<% end %>
 
 
 <div>
   <% if user_signed_in? %>
     <div>
-      Welcome <%= current_user.email %>!
+      <h1 class="text-secondary text-md mt-5 mb-5">Welcome <%= current_user.email.split('@').first.capitalize %> 👋</h1>
+
     </div>
 
     <h1 class="text-primary">
-      Activities
+      Your Activities
       <small><%= link_to "<i class='bi bi-plus-square-fill text-primary mx-2'></i>".html_safe, new_activity_path %></small>
     </h1>
+    
 
     <div id="activities" class="mt-4 card-deck">
-      <% @activities.each do |activity| %>
+      <% @activities.where(user_id: current_user.id).each do |activity| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
           <%= render activity %>
         </div>
@@ -30,8 +41,20 @@
   
   <% else %>
 
-    <%= link_to "Sign up", new_user_registration_path %>
-    <%= link_to "Sign in", new_user_session_path %>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <h1 class="text-primary text-lg mb-4 py-5"> Welcome to FlexFlow!</h1>
+            <p class="text-secondary mb-4 fs-5 text-nowrap"> Your personal hub for tracking and improving your fitness journey. </p>
+
+              <%= link_to "Sign up", new_user_registration_path, class:"btn btn-secondary mt-2 px-2 py-2" %>
+              <%= link_to "Sign in", new_user_session_path, class:"btn btn-primary mt-2 px-2 py-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   
   <% end %>
 

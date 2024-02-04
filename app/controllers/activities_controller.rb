@@ -3,6 +3,7 @@
 class ActivitiesController < ApplicationController
   
   before_action :set_activity, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
   
   # GET /activities or /activities.json
 
@@ -80,7 +81,8 @@ class ActivitiesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # params are form fields in Rails - app is looking for these parameters
     def activity_params
-      params.require(:activity).permit(:title, :activity_type, :start, :duration, :calories)
+      params.require(:activity).permit(:title, :activity_type, :start, :duration, :calories, :user_id)
     end
 end
