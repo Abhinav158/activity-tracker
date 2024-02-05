@@ -14,7 +14,7 @@
 <div>
   <% if user_signed_in? %>
     <div>
-      <h1 class="text-secondary text-md mt-5 mb-5">Welcome <%= current_user.email.split('@').first.capitalize %> 👋</h1>
+      <h1 class="text-secondary text-md mt-5 mb-5">Welcome <%= current_user.email.split('@').first.capitalize %>! 👋</h1>
 
     </div>
 
@@ -32,12 +32,15 @@
       <% end %>
     </div>
 
-    
+    <a href="activities/stats"><button class="btn btn-success primary-text mb-2 mt-2">View my Stats</button></a>   
 
+    <hr class="my-4 border-primary" style="border-width: 3px;">
 
     <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-secondary mt-2" %>
 
     <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary mt-2" %>
+
+    
   
   <% else %>
 
