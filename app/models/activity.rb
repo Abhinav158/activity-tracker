@@ -8,7 +8,7 @@ class Activity < ApplicationRecord
     validates :start, presence: true
 
     # Duration and Calories should be an integer value (Cannot be negative)
-    validates :duration, presence: true, numericality: { only_integer: true, greater_than: 0 }
+    validates :duration, presence: true, numericality: { greater_than: 0 }
     validates :calories, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   

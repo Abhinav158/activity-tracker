@@ -33,13 +33,13 @@
           <div class="col">
             <div class="form-group mb-2">
               <%= form.label :duration, style: "display: block" %>
-              <%= form.text_field :duration, class:"form-control mt-2" %>
+              <%= form.text_field :duration, class:"form-control mt-2", placeholder: "Enter duration in minutes" %>
             </div>
           </div>
           <div class="col">
             <div class="form-group mb-2">
               <%= form.label :calories, style: "display: block" %>
-              <%= form.number_field :calories, class:"form-control mt-2" %>
+              <%= form.number_field :calories, class:"form-control mt-2", placeholder: "Enter calories burnt in kcal" %>
             </div>
           </div>
         </div>
@@ -51,6 +51,8 @@
         <div>
           <%= form.submit class: "btn mt-2 btn-primary text-dark" %>
         </div>
+
+        <a href="/"><button class="btn btn-secondary mb-2 mt-2">Back</button></a>
       <% end %>
     </div>
   </div>

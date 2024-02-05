@@ -64,11 +64,11 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  # New method to display the stats 
+  # New method to display the stats of that user 
   def stats
-    @total_calories = Activity.sum(:calories)
-    @total_duration = Activity.sum(:duration)
-
+    @user_activities = current_user.activities
+    @total_calories  = @user_activities.sum(:calories)
+    @total_duration  = @user_activities.sum(:duration)
     
   end
 
