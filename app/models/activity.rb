@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
     belongs_to :user   
+    belongs_to :activity_type
   
     # Adding validations to activity fields  
     validates :title, presence: true, length: { maximum: 100 }
