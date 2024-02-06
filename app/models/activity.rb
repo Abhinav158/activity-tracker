@@ -1,6 +1,9 @@
 class Activity < ApplicationRecord
     belongs_to :user   
     belongs_to :activity_type
+
+    # Giving every activity an image using Active Storage
+    has_one_attached :image
   
     # Adding validations to activity fields  
     validates :title, presence: true, length: { maximum: 100 }

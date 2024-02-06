@@ -90,4 +90,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.active_storage.variant_processor = :vips
+  config.active_storage.variant_options = {
+    quality: 85,
+    resize_to_limit: [1200, 1200]
+  }
+
 end

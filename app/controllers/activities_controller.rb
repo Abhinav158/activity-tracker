@@ -83,6 +83,6 @@ class ActivitiesController < ApplicationController
     # Only allow a list of trusted parameters through.
     # params are form fields in Rails - app is looking for these parameters
     def activity_params
-      params.require(:activity).permit(:title, :activity_type_id, :start, :duration, :calories, :user_id)
+      params.require(:activity).permit(:title, :activity_type_id, :start, :duration, :calories, :user_id, :image)
     end
 end
