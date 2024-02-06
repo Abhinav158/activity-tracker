@@ -94,7 +94,7 @@ Rails.application.configure do
   config.active_storage.variant_processor = :vips
   config.active_storage.variant_options = {
     quality: 85,
-    resize_to_limit: [1200, 1200]
+    resize_to_limit: [2400, 2400]
   }
 
 end
